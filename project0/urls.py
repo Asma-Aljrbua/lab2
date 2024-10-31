@@ -14,11 +14,32 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+
 from django.contrib import admin
-from django.urls import path , include 
+from django.urls import include, path
+#from . import views 
+from bookmodule import views 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('bookmodule.urls')),
-    path('', include('usermodule.urls')),
+     path('admin/', admin.site.urls),
+   path('', views.index, name='index'),
+   path('index2/<int:val1>/', views.index2, name='index2'),
+    path('books/', include('bookmodule.urls')),
 ]
+
+
+#from django.contrib import admin
+#from django.urls import path ,include
+#from bookmodule import views  # Adjust this line based on your project structure
+
+#urlpatterns = [
+ #   path('admin/', admin.site.urls),
+ #   path('', views.index, name='index'),
+  #  path('index2/<int:val1>/', views.index2, name='index2'),
+  #  path('books/', include('apps.bookmodule.urls')),
+# ]
+  #  path('index2/<int:value1>/', views.index2, name='index2'),
+  #  path('admin/', admin.site.urls),
+   # path('books/', include('bookmodule.urls')),  # تضمين urls الخاص بتطبيق bookmodule
+    #path('users/', include('usermodule.urls')),  # إذا كان لديك أي توجيهات لـ usermodule
