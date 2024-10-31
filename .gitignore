@@ -1,0 +1,16 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+env/
+
+# Database files
+*.sqlite3
+
+# Media files
+media/
+
+# Other
+*.log
